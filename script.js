@@ -11,7 +11,7 @@ const guessNumber = function () {
 
   //  Записываем результат в переменную в указанном интервале
   const resultGetRandomInit = getRandomInt(1, 100);
-
+  console.log(resultGetRandomInit);
   // Основная частья
   const baseGame = function (attempts) {
 
@@ -25,7 +25,7 @@ const guessNumber = function () {
 
       return userNumber;
     }
-    
+
     // Записываем результат в перемннную
     const resultFuncQuestionUser = questionUser();
 
@@ -33,23 +33,8 @@ const guessNumber = function () {
     const responseOutput = function () {
 
       switch (true) {
-        // В случае окончания попыток
-        case attempts === 0:
-          let resultAnswer = confirm("Попытки закончились, хотите сыграть еще?");
-          switch (resultAnswer) {
-            
-            case false:
-              alert("Игра окончена");
-              break;
 
-            case true:
-              guessNumber();
-              break;
-
-          }
-          break;
-
-         // Число было угаданно
+        // Число было угаданно
         case parseFloat(resultFuncQuestionUser) === resultGetRandomInit:
           let answer = confirm("Поздравляю, Вы угадали!!!, Хотели бы поиграть еще??");
 
@@ -66,13 +51,30 @@ const guessNumber = function () {
           }
 
           break;
-        
-        // Пользователь нажал отмена
+
+          // В случае окончания попыток
+        case attempts === 0:
+          let resultAnswer = confirm("Попытки закончились, хотите сыграть еще?");
+          switch (resultAnswer) {
+
+            case false:
+              alert("Игра окончена");
+              break;
+
+            case true:
+              guessNumber();
+              break;
+
+          }
+          break;
+
+
+          // Пользователь нажал отмена
         case !resultFuncQuestionUser:
           alert("Это ваше прощальное сообщение мы выключаемся");
           break;
-        
-        // Введенно не число
+
+          // Введенно не число
         case !parseFloat(resultFuncQuestionUser):
           alert("Введи число");
           // Возвращаем колличество попыток на одну
