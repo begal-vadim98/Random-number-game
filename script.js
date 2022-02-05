@@ -1,7 +1,6 @@
 'use strict'
 
 const funcRound = function (one, two) {
-  if (one === true || two === true) funcRound();
 
   // Генерируем случайное число
   const getRandomInt = function (min, max) {
@@ -94,7 +93,7 @@ const funcRound = function (one, two) {
   }
 
   guessNumber();
-
+  if (one === true || two === true) funcRound();
 
 }
 
